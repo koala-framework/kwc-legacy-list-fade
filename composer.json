@@ -1,0 +1,25 @@
+{
+    "name": "koala-framework/kwc-legacy-list-fade",
+    "description": "Legacy Koala Framework List Fade Component",
+    "homepage": "http://www.koala-framework.org/",
+    "license": "BSD-2-Clause",
+    "type": "library",
+    "require": {
+        "koala-framework/koala-framework": "dev-master"
+    },
+    "require-dev": {
+    },
+    "extra": {
+        "require-bower": {
+            "jquery.transit": "0.9.9",
+            "jquery.easing": "1.3.0"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-0": {
+            "Kwc_LegacyListFade_": ""
+        }
+    }
+}
