@@ -5,7 +5,7 @@ abstract class Kwc_LegacyListFade_Component extends Kwc_Abstract_List_Component
     {
         $ret = parent::getSettings();
         $ret['componentName'] = trlKwfStatic('Fade images');
-        $ret['assetsDefer']['dep'][] = 'KwfFadeElements';
+        $ret['assetsDefer']['dep'][] = 'KwfLegacyListFade';
 
         // $ret['generators']['child']['component'] muss gesetzt werden
 

@@ -5,7 +5,7 @@ class Kwc_LegacyListFade_CompositeFade_Component extends Kwc_Abstract_Composite_
     {
         $ret = parent::getSettings();
         $ret['componentName'] = trlKwfStatic('Fade');
-        $ret['assetsDefer']['dep'][] = 'KwfFadeElements';
+        $ret['assetsDefer']['dep'][] = 'KwfLegacyListFade';
 
         $ret['selector'] = '> div';
 
