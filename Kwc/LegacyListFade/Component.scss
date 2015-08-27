@@ -1,17 +1,13 @@
 .kwcClass {
-    .components {
+    .kwfUp-components {
         position: relative;
         top: 0px;
         left: 0px;
     }
 
-    > .subComponents {
+    &__subComponents {
         position: absolute;
         width: 100%;
         top: 0;
-
-        &.kwcFirst {
-            position: static;
-        }
     }
 }

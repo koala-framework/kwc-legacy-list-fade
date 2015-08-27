@@ -1,24 +1,24 @@
-.kwfFadeElements { position: relative; }
-.kwfFadeElements .outerComponents { position: relative; overflow: hidden; }
-.kwfFadeElement { position: absolute; top: 0px; left: 0px; width: 100%; }
+.kwfUp-kwfFadeElements { position: relative; }
+.kwfUp-kwfFadeElements .kwfUp-outerComponents { position: relative; overflow: hidden; }
+.kwfUp-kwfFadeElement { position: absolute; top: 0px; left: 0px; width: 100%; }
 
-.elementAccessLinks { position: relative; z-index: 2; }
-.elementAccessLinks li { float: left; }
-.elementAccessLinks .elementAccessLink {
+.kwfUp-elementAccessLinks { position: relative; z-index: 2; }
+.kwfUp-elementAccessLinks > li { float: left; }
+.kwfUp-elementAccessLinks .kwfUp-elementAccessLink {
     display: block; width: 20px; height: 20px;
     background-color: #bbb; margin: 0px 5px;
 }
-.elementAccessLinks a.elementAccessLinkActive {
+.kwfUp-elementAccessLinks a.kwfUp-elementAccessLinkActive {
     background-color: #fff;
 }
-.elementAccessLinks .elementAccessPlayPauseButton {
+.kwfUp-elementAccessLinks .kwfUp-elementAccessPlayPauseButton {
     background-repeat: no-repeat;
 }
-.elementAccessLinks .elementAccessPause {
+.kwfUp-elementAccessLinks .kwfUp-elementAccessPause {
     background-image: url(/assets/kwf/images/pause.png);
 }
-.elementAccessLinks .elementAccessPlay {
+.kwfUp-elementAccessLinks .kwfUp-elementAccessPlay {
     background-image: url(/assets/kwf/images/play.png);
 }
-.elementAccessNext,
-.elementAccessPrevious { position: relative; z-index: 2; }
+.kwfUp-elementAccessNext,
+.kwfUp-elementAccessPrevious { position: relative; z-index: 2; }

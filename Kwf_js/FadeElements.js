@@ -2,16 +2,16 @@ var onReady = require('kwf/on-ready');
 var componentEvent = require('kwf/component-event');
 var _ = require('underscore');
 
-onReady.onRender('div.kwfFadeElements', function fadeElements(element) {
-    var fadeClass = element.find('.fadeClass');
-    var selector = element.find('.fadeSelector')[0].value;
-    var config = element.find('.fadeConfig'); // optional
+onReady.onRender('div.kwfUp-kwfFadeElements', function fadeElements(element) {
+    var fadeClass = element.find('.kwfUp-fadeClass');
+    var selector = element.find('.kwfUp-fadeSelector')[0].value;
+    var config = element.find('.kwfUp-fadeConfig'); // optional
     if (config && config[0]) {
         config = $.parseJSON(config[0].value);
     } else {
         config = { };
     }
-    var textSelector = element.find('.textSelector'); // optional
+    var textSelector = element.find('.kwfUp-textSelector'); // optional
     if (textSelector && textSelector[0]) {
         config.textSelector = textSelector[0].value;
     }
@@ -31,7 +31,7 @@ onReady.onRender('div.kwfFadeElements', function fadeElements(element) {
 }, { defer: true });
 
 
-onReady.onResize('div.kwfFadeElements', function fadeElementsWidthChange(element) {
+onReady.onResize('div.kwfUp-kwfFadeElements', function fadeElementsWidthChange(element) {
     element = element.get(0);
     if (element.fadeElementsObject) {
         element.fadeElementsObject.calculateMaxHeight();
@@ -79,9 +79,9 @@ Kwf.Fade.Elements = function(cfg) {
 
     this.fadeElements = $(this.selectorRoot).find(this.selector);
 
-    $(this.selectorRoot).append('<div class="outerComponents"></div>');
-    $(this.selectorRoot).children('.outerComponents').append('<div class="components"></div>');
-    $(this.selectorRoot).find('.components').append(this.fadeElements);
+    $(this.selectorRoot).append('<div class="kwfUp-outerComponents"></div>');
+    $(this.selectorRoot).children('.kwfUp-outerComponents').append('<div class="kwfUp-components"></div>');
+    $(this.selectorRoot).find('.kwfUp-components').append(this.fadeElements);
 
     if (this.startRandom) {
         this.active = Math.floor(Math.random() * this.fadeElements.length);
@@ -100,8 +100,8 @@ Kwf.Fade.Elements = function(cfg) {
     this.fadeElements.each($.proxy(function(index, e) {
         var ee = $(e);
 
-        ee.addClass('kwfFadeElement');
-        if(this.animationType == 'slide') {
+        ee.addClass('kwfUp-kwfFadeElement');
+        if (this.animationType == 'slide') {
             if (i != this.active) {
                 ee.css('display', 'none');
             } else {
@@ -153,7 +153,7 @@ Kwf.Fade.Elements.prototype = {
     _isAnimating: false,
 
     start: function() {
-        this._components = $(this.selectorRoot).find('.components');
+        this._components = $(this.selectorRoot).find('.kwfUp-components');
         this.calculateMaxHeight();
         if (this.fadeElements.length <= 1) return;
         if (this.autoStart) {
@@ -179,7 +179,7 @@ Kwf.Fade.Elements.prototype = {
 
         nextEl.stop(true, false);
         activeEl.stop(true, false);
-        if(this.animationType == 'slide') { //TODO implement different animation-types
+        if (this.animationType == 'slide') { //TODO implement different animation-types
             // set default direction
             var width = this._components.width();
             var height = this._components.height();
@@ -310,10 +310,10 @@ Kwf.Fade.Elements.prototype = {
         }
 
         if (this.elementAccessDirect) {
-            if ($(this._elementAccessLinkEls[this.active]).hasClass('elementAccessLinkActive')) {
-                $(this._elementAccessLinkEls[this.active]).removeClass('elementAccessLinkActive');
+            if ($(this._elementAccessLinkEls[this.active]).hasClass('kwfUp-elementAccessLinkActive')) {
+                $(this._elementAccessLinkEls[this.active]).removeClass('kwfUp-elementAccessLinkActive');
             }
-            $(this._elementAccessLinkEls[this.next]).addClass('elementAccessLinkActive');
+            $(this._elementAccessLinkEls[this.next]).addClass('kwfUp-elementAccessLinkActive');
         }
 
         this.active = this.next;
@@ -342,8 +342,8 @@ Kwf.Fade.Elements.prototype = {
     pause: function() {
         if (this._timeoutId) window.clearTimeout(this._timeoutId);
         if (this._playPauseButton) {
-            this._playPauseButton.removeClass('elementAccessPause');
-            this._playPauseButton.addClass('elementAccessPlay');
+            this._playPauseButton.removeClass('kwfUp-elementAccessPause');
+            this._playPauseButton.addClass('kwfUp-elementAccessPlay');
         }
         this._playPause = 'pause';
     },
@@ -351,8 +351,8 @@ Kwf.Fade.Elements.prototype = {
     play: function() {
         this.doFade();
         if (this._playPauseButton) {
-            this._playPauseButton.removeClass('elementAccessPlay');
-            this._playPauseButton.addClass('elementAccessPause');
+            this._playPauseButton.removeClass('kwfUp-elementAccessPlay');
+            this._playPauseButton.addClass('kwfUp-elementAccessPause');
         }
         this._playPause = 'play';
     },
@@ -371,20 +371,20 @@ Kwf.Fade.Elements.prototype = {
         if (this.fadeElements.length >= 2) {
             var template = '';
             if (this.elementAccessDirect || this.elementAccessPlayPause) {
-                template += '<ul class="elementAccessLinks">';
+                template += '<ul class="kwfUp-elementAccessLinks">';
             }
 
             if (this.elementAccessDirect) {
                 template += '<% _.each(elementAccessLinks, function(item) { %>' +
                     '<li>' +
-                        '<a class="elementAccessLink" href="#"></a>' +
+                        '<a class="kwfUp-elementAccessLink" href="#"></a>' +
                     '</li>' +
                 '<% }) %>';
             }
 
             if (this.elementAccessPlayPause) {
                 template += '<li>' +
-                    '<a class="elementAccessPlayPauseButton elementAccessPause" href="#">&nbsp;</a>' +
+                    '<a class="kwfUp-elementAccessPlayPauseButton kwfUp-elementAccessPause" href="#">&nbsp;</a>' +
                 '</li>';
             }
 
@@ -393,8 +393,8 @@ Kwf.Fade.Elements.prototype = {
             }
 
             if (this.elementAccessNextPrevious) {
-                template += '<a class="elementAccessPrevious" href="#"></a>' +
-                '<a class="elementAccessNext" href="#"></a>';
+                template += '<a class="kwfUp-elementAccessPrevious" href="#"></a>' +
+                '<a class="kwfUp-elementAccessNext" href="#"></a>';
             }
 
             if (!this._template) {
@@ -414,11 +414,11 @@ Kwf.Fade.Elements.prototype = {
             var output = this._template(data);
             $(this.selectorRoot).append(output);
 
-            var elementAccessLinks = $(this.selectorRoot).find('a.elementAccessLink');
+            var elementAccessLinks = $(this.selectorRoot).find('a.kwfUp-elementAccessLink');
             if (elementAccessLinks.length) {
                 this._elementAccessLinkEls = elementAccessLinks;
                 this._elementAccessLinkEls.each($.proxy(function(index, e) {
-                    if (this.active==index) $(e).addClass('elementAccessLinkActive');
+                    if (this.active==index) $(e).addClass('kwfUp-elementAccessLinkActive');
                     $(e).click($.proxy(function(ev) {
                         ev.preventDefault();
                         if (this._timeoutId) {
@@ -431,7 +431,7 @@ Kwf.Fade.Elements.prototype = {
                 }, this));
             }
 
-            this._playPauseButton = $(this.selectorRoot).find('a.elementAccessPlayPauseButton');
+            this._playPauseButton = $(this.selectorRoot).find('a.kwfUp-elementAccessPlayPauseButton');
             if (this._playPauseButton.length) {
                 this._playPauseButton.click($.proxy(function(ev) {
                     ev.preventDefault();
@@ -444,7 +444,7 @@ Kwf.Fade.Elements.prototype = {
                 }, this));
             }
 
-            var prevButton = $(this.selectorRoot).find('a.elementAccessPrevious');
+            var prevButton = $(this.selectorRoot).find('a.kwfUp-elementAccessPrevious');
             if (prevButton.length) {
                 prevButton.click($.proxy(function(ev) {
                     ev.preventDefault();
@@ -460,7 +460,7 @@ Kwf.Fade.Elements.prototype = {
                 }, this));
             }
 
-            var nextButton = $(this.selectorRoot).find('a.elementAccessNext');
+            var nextButton = $(this.selectorRoot).find('a.kwfUp-elementAccessNext');
             if (nextButton.length) {
                 nextButton.click($.proxy(function(ev) {
                     ev.preventDefault();
