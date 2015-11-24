@@ -19,7 +19,7 @@
     "prefer-stable": true,
     "autoload": {
         "psr-0": {
-            "Kwc_LegacyListFade_": ""
+            "LegacyListFade_": ""
         }
     }
 }

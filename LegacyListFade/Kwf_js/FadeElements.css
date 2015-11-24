@@ -1,6 +1,6 @@
-.kwfUp-kwfFadeElements { position: relative; }
-.kwfUp-kwfFadeElements .kwfUp-outerComponents { position: relative; overflow: hidden; }
-.kwfUp-kwfFadeElement { position: absolute; top: 0px; left: 0px; width: 100%; }
+.kwfUp-legacyListFadeKwfFadeElements { position: relative; }
+.kwfUp-legacyListFadeKwfFadeElements .kwfUp-outerComponents { position: relative; overflow: hidden; }
+.kwfUp-legacyListFadeKwfFadeElement { position: absolute; top: 0px; left: 0px; width: 100%; }
 
 .kwfUp-elementAccessLinks { position: relative; z-index: 2; }
 .kwfUp-elementAccessLinks > li { float: left; }

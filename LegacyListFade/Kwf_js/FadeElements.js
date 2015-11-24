@@ -9,7 +9,7 @@ require('jQuery.transit');
 if (!$.support.transition) $.fn.transition = $.fn.animate;
 
 
-onReady.onRender('div.kwfUp-kwfFadeElements', function fadeElements(element) {
+onReady.onRender('div.kwfUp-legacyListFadeKwfFadeElements', function fadeElements(element) {
     var fadeClass = element.find('.kwfUp-fadeClass');
     var selector = element.find('.kwfUp-fadeSelector')[0].value;
     var config = element.find('.kwfUp-fadeConfig'); // optional
@@ -38,7 +38,7 @@ onReady.onRender('div.kwfUp-kwfFadeElements', function fadeElements(element) {
 }, { defer: true });
 
 
-onReady.onResize('div.kwfUp-kwfFadeElements', function fadeElementsWidthChange(element) {
+onReady.onResize('div.kwfUp-legacyListFadeKwfFadeElements', function fadeElementsWidthChange(element) {
     element = element.get(0);
     if (element.fadeElementsObject) {
         element.fadeElementsObject.calculateMaxHeight();
