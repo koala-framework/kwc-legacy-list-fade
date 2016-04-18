@@ -19,7 +19,7 @@
             $class = trim($class);
             $i++;
         ?>
-        <div class="<?=$this->bemClass('subComponents')?> <?=$this->bemClass($class)?>">
+        <div class="<?=$this->bemClass('subComponents')?> <?=$this->bemClass($class)?> kwfUp-kwfFadeElement">
             <?=$this->component($child);?>
         </div>
     <? } ?>
