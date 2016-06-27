@@ -2,8 +2,8 @@ var onReady = require('kwf/on-ready');
 var componentEvent = require('kwf/component-event');
 var _ = require('underscore');
 var $ = require('jQuery');
-require('jQuery.easing');
-require('jQuery.transit');
+require('kwf-jquery-plugin/jquery.easing');
+require('kwf-jquery-plugin/jquery.transit');
 
 //Transit Fallback
 if (!$.support.transition) $.fn.transition = $.fn.animate;
